@@ -29,7 +29,7 @@ func testInitWalletManager() *openw.WalletManager {
 
 func TestWalletManager_CreateWallet(t *testing.T) {
 	tm := testInitWalletManager()
-	w := &openwallet.Wallet{Alias: "HELLO UFC", IsTrust: true, Password: "12345678"}
+	w := &openwallet.Wallet{Alias: "HELLO UFC 3", IsTrust: true, Password: "12345678"}
 	nw, key, err := tm.CreateWallet(testApp, w)
 	if err != nil {
 		log.Error(err)
@@ -45,7 +45,7 @@ func TestWalletManager_GetWalletInfo(t *testing.T) {
 
 	tm := testInitWalletManager()
 
-	wallet, err := tm.GetWalletInfo(testApp, "W4pPxx4E4tM1TJWiAyMcGSFMbE8c68URbW")
+	wallet, err := tm.GetWalletInfo(testApp, "WC7xUtsRRjfpbMHsv1XEPyyZt9zBqh1MrQ")
 	if err != nil {
 		log.Error("unexpected error:", err)
 		return
@@ -74,8 +74,8 @@ func TestWalletManager_CreateAssetsAccount(t *testing.T) {
 
 	tm := testInitWalletManager()
 
-	walletID := "WJw2FiwwbyP5zyk9YMWi46coeeCDWgi5Mx"
-	account := &openwallet.AssetsAccount{Alias: "zbbob111", WalletID: walletID, Required: 1, Symbol: "UFC", IsTrust: true}
+	walletID := "WMUNKe9munq8jCKV8M9BMZ3GgmsmXupSVQ"
+	account := &openwallet.AssetsAccount{Alias: "zbcat999", WalletID: walletID, Required: 1, Symbol: "UFC", IsTrust: true}
 	account, address, err := tm.CreateAssetsAccount(testApp, walletID, "12345678", account, nil)
 	if err != nil {
 		log.Error(err)
@@ -92,7 +92,7 @@ func TestWalletManager_GetAssetsAccountList(t *testing.T) {
 
 	tm := testInitWalletManager()
 
-	walletID := "WJw2FiwwbyP5zyk9YMWi46coeeCDWgi5Mx"
+	walletID := "WC7xUtsRRjfpbMHsv1XEPyyZt9zBqh1MrQ"
 	list, err := tm.GetAssetsAccountList(testApp, walletID, 0, 10000000)
 	if err != nil {
 		log.Error("unexpected error:", err)
@@ -128,14 +128,14 @@ func TestWalletManager_GetAddressList(t *testing.T) {
 
 	tm := testInitWalletManager()
 
-	walletID := "WJw2FiwwbyP5zyk9YMWi46coeeCDWgi5Mx"
-	accountID := "Fej7cNjwXmr54kno1C8irVRULdufwZhYKVLcf6pLTz3z" //zbbob111 UFC5KvED5xiNiLvwyV8nH5BUH1eTm2uqRrvu5WgwG6CJYkqHiDocD
+	walletID := "WNThpn66zHFXYAHkBuUMTpgzndfcuY68hw"
+	accountID := "Hh3pAc3NuCTLcYFXnfJJqnYWykk5tLfnLbrn3MzM6bRu" //zbbob111 UFC5mzvxCc2Dfd3GJ25HKP88TMpTnQdAJmoJHLmSuhstfjreYHCSu
 
-	// walletID := "W4pPxx4E4tM1TJWiAyMcGSFMbE8c68URbW"
-	// accountID := "7z1CyywoB1vC1xnvV4kbvVk1mMjQumV4Vmgp3BbHsHJo" //zbalice999 UFC5wroY2sDyzPMjF9z3EoBugCnDLP1KSoaFXbb3MAm4gWhUAyFb4
+	// walletID := "WC7xUtsRRjfpbMHsv1XEPyyZt9zBqh1MrQ"
+	// accountID := "3UNnJBcgYbwXNtZLHJzKBQFSz4FXC3rKuwb3UoyWaz7r" //zbalice999 UFC537XWfKZw69tpUShYa7bm3tDytGqwQm829wtjNgkhuX6Y8mELz
 
-	// walletID := "WJw2FiwwbyP5zyk9YMWi46coeeCDWgi5Mx"
-	// accountID := "2cNrcyg8ZQrCDy9BkMA6pSwRncRtipT7FNEPeC8tMTaU" //zbcat999 UFC6aWYcRkhqAUPLEkf89eZWwnJBxexSkK6nNwonaB9rQaekNR5WQ UFC7USYmVdEkfzVyePSsawE6VGNFGHsQp8uG2fkRW6MNKKaVWHWFi
+	// walletID := "WMUNKe9munq8jCKV8M9BMZ3GgmsmXupSVQ"
+	// accountID := "H21A7sN6LFJisHoVFhoakMWGbmZkucsd4v3avCAWiSY" //zbcat999 UFC81QynkVXQt2N2xi6PkyZ9Hh5aRgtcrdf37iZxH81LkPeRXDrup
 
 	list, err := tm.GetAddressList(testApp, walletID, accountID, 0, -1, false)
 	if err != nil {
