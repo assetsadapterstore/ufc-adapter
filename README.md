@@ -14,7 +14,7 @@ ufc.ini文件，编辑如下内容：
 #wallet api url
 ServerAPI = "https://localhost:8080"
 # ChainID
-ChainID = "d9eaa82af8c8f89ca4bc484376fb1069f536e7484df3b1cbfcc36c41e8f757c8"
+ChainID = "24938a99198d850bb7d79010c1325fb63fde63e8e477a5443ff5ce50ab867055"
 
 ```
 

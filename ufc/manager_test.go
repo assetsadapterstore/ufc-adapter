@@ -16,7 +16,9 @@
 package ufc
 
 import (
-	"github.com/blocktree/whitecoin-adapter/whitecoin"
+	"path/filepath"
+
+	"github.com/astaxie/beego/config"
 )
 
 var (
@@ -29,8 +31,16 @@ func init() {
 
 func testNewWalletManager() *WalletManager {
 	wm := NewWalletManager()
-	wm.Config.ServerAPI = ""
-	wm.Api = whitecoin.NewWalletClient(wm.Config.ServerAPI, "", true)
+
+	//读取配置
+	absFile := filepath.Join("conf", "UFC.ini")
+	//log.Debug("absFile:", absFile)
+	c, err := config.NewConfig("ini", absFile)
+	if err != nil {
+		return nil
+	}
+	wm.LoadAssetsConfig(c)
+	wm.Api.Debug = true
 
 	return wm
 }
