@@ -132,7 +132,7 @@ func TestTransfer(t *testing.T) {
 		Symbol:   "UFC",
 		Name:     "UFC",
 		Token:    "UFC",
-		Decimals: 4,
+		Decimals: 8,
 	}
 
 	testGetAssetsAccountBalance(tm, walletID, accountID)
@@ -172,7 +172,7 @@ func TestSummary(t *testing.T) {
 		Symbol:   "UFC",
 		Name:     "UFC",
 		Token:    "UFC",
-		Decimals: 4,
+		Decimals: 8,
 	}
 
 	testGetAssetsAccountBalance(tm, walletID, accountID)

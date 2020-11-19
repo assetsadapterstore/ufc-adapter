@@ -68,16 +68,14 @@ func TestSubscribeAddress_UFC(t *testing.T) {
 		endRunning = make(chan bool, 1)
 		symbol     = "UFC"
 		addrs      = map[string]string{
-			"bltestuf c333": "sender",
-			"bltestufc111": "receiver",
-			"bltestufc555": "receiver",
-			"ufctransfer0": "sender",
+			"UFCNdBtitnuzC9PHCEWheaCYTXmF23DsgXK22": "sender",
+			"UFCNdyTKXkLQbNCCDvi1WCiSTYh2pikL85Kwg": "receiver",
 		}
 	)
 
 	//GetSourceKeyByAddress 获取地址对应的数据源标识
 	scanAddressFunc := func(target openwallet.ScanTarget) (string, bool) {
-		key, ok := addrs[target.Alias]
+		key, ok := addrs[target.Address]
 		if !ok {
 			return "", false
 		}
@@ -119,7 +117,7 @@ func TestSubscribeAddress_UFC(t *testing.T) {
 		scanner.SetBlockchainDAI(dai)
 	}
 
-	scanner.SetRescanBlockHeight(12261357)
+	scanner.SetRescanBlockHeight(6563)
 
 	if scanner == nil {
 		log.Error(symbol, "is not support block scan")
