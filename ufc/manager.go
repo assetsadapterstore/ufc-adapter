@@ -18,6 +18,7 @@ package ufc
 import (
 	"github.com/blocktree/openwallet/v2/log"
 	"github.com/blocktree/whitecoin-adapter/whitecoin"
+	"github.com/assetsadapterstore/ufc-adapter/addrdec"
 )
 
 type WalletManager struct {
@@ -29,7 +30,7 @@ func NewWalletManager() *WalletManager {
 	wm.WalletManager = whitecoin.NewWalletManager()
 	wm.Config = whitecoin.NewConfig(Symbol)
 	wm.Decoder = NewAddressDecoder(&wm)
-	wm.DecoderV2 = NewAddressDecoder(&wm)
+	wm.DecoderV2 = addrdec.NewAddressDecoderV2()
 	wm.Log = log.NewOWLogger(wm.Symbol())
 	return &wm
 }
