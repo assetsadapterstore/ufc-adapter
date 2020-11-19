@@ -111,15 +111,17 @@ func TestWalletManager_CreateAddress(t *testing.T) {
 
 	tm := testInitWalletManager()
 
-	walletID := "WJw2FiwwbyP5zyk9YMWi46coeeCDWgi5Mx"
-	accountID := "2cNrcyg8ZQrCDy9BkMA6pSwRncRtipT7FNEPeC8tMTaU"
+	walletID := "WMUNKe9munq8jCKV8M9BMZ3GgmsmXupSVQ"
+	accountID := "H21A7sN6LFJisHoVFhoakMWGbmZkucsd4v3avCAWiSY"
 	address, err := tm.CreateAddress(testApp, walletID, accountID, 1)
 	if err != nil {
 		log.Error(err)
 		return
 	}
 
-	log.Info("address:", address)
+	for i, w := range address {
+		log.Info("address[", i, "] :", w.Address)
+	}
 
 	tm.CloseDB(testApp)
 }
@@ -128,14 +130,14 @@ func TestWalletManager_GetAddressList(t *testing.T) {
 
 	tm := testInitWalletManager()
 
-	walletID := "WNThpn66zHFXYAHkBuUMTpgzndfcuY68hw"
-	accountID := "Hh3pAc3NuCTLcYFXnfJJqnYWykk5tLfnLbrn3MzM6bRu" //zbbob111 UFC5mzvxCc2Dfd3GJ25HKP88TMpTnQdAJmoJHLmSuhstfjreYHCSu
+	walletID := "WC7xUtsRRjfpbMHsv1XEPyyZt9zBqh1MrQ"
+	accountID := "3UNnJBcgYbwXNtZLHJzKBQFSz4FXC3rKuwb3UoyWaz7r" //zbalice999 UFCNdyTKXkLQbNCCDvi1WCiSTYh2pikL85Kwg
 
-	// walletID := "WC7xUtsRRjfpbMHsv1XEPyyZt9zBqh1MrQ"
-	// accountID := "3UNnJBcgYbwXNtZLHJzKBQFSz4FXC3rKuwb3UoyWaz7r" //zbalice999 UFC537XWfKZw69tpUShYa7bm3tDytGqwQm829wtjNgkhuX6Y8mELz
+	// walletID := "WNThpn66zHFXYAHkBuUMTpgzndfcuY68hw"
+	// accountID := "Hh3pAc3NuCTLcYFXnfJJqnYWykk5tLfnLbrn3MzM6bRu" //zbbob111 UFCNbbkUWSthHrf8wBGkaSzsHkrMrCKo97gfb
 
 	// walletID := "WMUNKe9munq8jCKV8M9BMZ3GgmsmXupSVQ"
-	// accountID := "H21A7sN6LFJisHoVFhoakMWGbmZkucsd4v3avCAWiSY" //zbcat999 UFC81QynkVXQt2N2xi6PkyZ9Hh5aRgtcrdf37iZxH81LkPeRXDrup
+	// accountID := "H21A7sN6LFJisHoVFhoakMWGbmZkucsd4v3avCAWiSY" //zbcat999 UFCNVrqLPWJQVFbxY4mEuKsJcBYEgxbCMPStD
 
 	list, err := tm.GetAddressList(testApp, walletID, accountID, 0, -1, false)
 	if err != nil {
